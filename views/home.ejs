@@ -1,0 +1,51 @@
+<%- include("partials/header")-%>
+    <h1>Home</h1>
+
+    <table>
+        <table>
+            <colgroup>
+                <col width="100px">
+                    <col width="*">
+                        <col width="150px">
+                            <col width="100px">
+            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>
+                                        <div class="btn_filter_box">
+                                            <span>제목</span>
+                                            <div class="btn_filter_group">
+                                                <span class="btn_up" onclick="setSearchItem('titleOrder', 'DESC');"></span>
+                                                <span class="btn_down" onclick="setSearchItem('titleOrder', 'ASC');"></span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <span class="btn_filter_box">
+                                            작성자
+                                            <div class="btn_filter_group">
+                                                <span class="btn_up" onclick="setSearchItem('insDateOrder', 'DESC');"></span>
+                                                <span class="btn_down" onclick="setSearchItem('insDateOrder', 'ASC');"></span>
+                                            </div>
+                                        </span>
+                                    </th>
+
+                                    <th>관리</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%let i =1; posts.forEach((elements) => {%>
+                                <tr>
+                                    <td><%=i%></td>
+                                    <td><a href="/posts/<%=elements._id%>"><%=elements.title%></a></td>
+                                    <td><%=elements.writer%></td>
+                                </tr>
+                                <% i ++;
+                            });%>
+
+                            </tbody>
+                        </table>
+
+                        <%- include("partials/footer"); -%>

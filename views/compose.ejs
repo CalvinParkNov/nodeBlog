@@ -1,0 +1,23 @@
+
+<%- include("partials/header"); -%>
+    <h1>Compose</h1>
+    <form class="" action="/createBlog" method="post">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="postTitle">
+        <label>Writer</label>
+        <input class="form-control" type="text" name="postWriter">
+        <label>Post</label>
+        <textarea id="editor" name="postBody"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Publish</button>
+    </form>
+
+    <script>
+        ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+      </script>
+<%- include("partials/footer"); -%>
